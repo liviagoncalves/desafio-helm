@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: liviamorais/httpd-cgi:0.2
+  repository: liviamorais/httpd-cgi
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
