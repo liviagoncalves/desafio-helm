@@ -1,0 +1,61 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-desafio
+  namespace: livia
+spec:
+  rules:
+  - host: desafio.cloud.jackexperts.io
+    http:
+      paths:
+      - backend:
+         service:
+           name: service-desafio
+           port:
+             number: 80
+        path: /
+        pathType: Prefix
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-desafio
+  namespace: livia
+spec:
+  selector:
+    app: desafio
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-desafio
+  namespace: livia
+  labels:
+    app: desafio
+spec:
+  selector:
+    matchLabels:
+      app: desafio
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+         app: desafio
+    spec:
+      containers:
+      - image: liviamorais/httpd-cgi:latest
+      	name: desafio
+        ports:
+        - containerPort: 80

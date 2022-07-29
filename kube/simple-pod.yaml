@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: desafio-shellscript
+spec:
+  containers:
+  - name: desafio-shellscript
+    image: liviamorais/httpd-cgi:0.1
+    ports:
+    - containerPort: 80

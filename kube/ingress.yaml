@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-app
+  namespace: livia
+spec:
+  rules:
+  - host: desafio.cloud.jacexperts.io
+    http:
+      paths:
+      - backend:
+         service:
+          name: service-app
+          port: 
+           number: 80
+        path: /
+        pathType: ImplementationSpecific
