@@ -3,5 +3,5 @@ name: desafio
 description: Desafio helma
 type: application
 version: 0.1.0
-appVersion: "0.2"
+#appVersion: "0.2"
 icon: https://w7.pngwing.com/pngs/112/603/png-transparent-shell-script-command-line-interface-unix-shell-bash-shell-angle-commandline-interface-nuvola.png
